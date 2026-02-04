@@ -28,10 +28,14 @@ const HomeBadge = ({
 const HomeButton = ({
   children,
   type,
-}: PropsWithChildren<{ type: 'primary' | 'secondary' | 'tertiary' }>) => {
+  href,
+}: PropsWithChildren<{
+  type: 'primary' | 'secondary' | 'tertiary';
+  href?: string;
+}>) => {
   return (
     <a
-      href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
+      href={href}
       target="_blank"
       rel="noreferrer"
       className={cn(
@@ -84,9 +88,24 @@ export default function Home() {
           </HomeBadge>
         </div>
         <div className="flex items-center justify-center flex-wrap gap-4 flex-col lg:flex-row">
-          <HomeButton type="primary">LIFF Documentation</HomeButton>
-          <HomeButton type="tertiary">LIFF Playground</HomeButton>
-          <HomeButton type="secondary">LINE Developers Console</HomeButton>
+          <HomeButton
+            type="primary"
+            href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
+          >
+            LIFF Documentation
+          </HomeButton>
+          <HomeButton
+            type="tertiary"
+            href="https://liff-playground.netlify.app/"
+          >
+            LIFF Playground
+          </HomeButton>
+          <HomeButton
+            type="secondary"
+            href="https://developers.line.biz/console/"
+          >
+            LINE Developers Console
+          </HomeButton>
         </div>
       </div>
     </div>
